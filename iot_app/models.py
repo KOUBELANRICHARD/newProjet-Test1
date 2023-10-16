@@ -14,6 +14,7 @@ class Device(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='devices')
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=200) 
+    image = models.ImageField(upload_to='devices/')
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
