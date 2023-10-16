@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Clients and Devices</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>IoT Clients and Devices</h1>
+    {% for client in clients %}
+    <div class="client-card">
+        <h2>{{ client.full_name }}</h2>
+        <p>Email: {{ client.email }}</p>
+        <p>Phone: {{ client.phone }}</p>
+        <p>Address: {{ client.address }}</p>
+        <h3>Devices:</h3>
+        <ul>
+            {% for device in client.devices.all %}
+            <li>{{ device.name }} - {{ device.type }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>
