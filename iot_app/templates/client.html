@@ -16,6 +16,11 @@
         <ul>
             {% for device in client.devices.all %}
             <li>{{ device.name }} - {{ device.type }}</li>
+            <li>
+                <img src="{{ device.image.url }}" alt="{{ device.name }}" width="50">
+                {{ device.name }} - {{ device.type }}
+            </li>
+            
             {% endfor %}
         </ul>
     </div>
