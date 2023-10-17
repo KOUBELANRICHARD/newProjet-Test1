@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'iot_app',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'iot_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'iot_app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
