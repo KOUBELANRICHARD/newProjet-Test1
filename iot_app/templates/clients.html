@@ -6,10 +6,22 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>IoT Clients and Devices</h1>
+    <header>
+        <h1>ZUGUS, The Best of IOT Plateforme.</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Accueil</a>
+        <a href="#about">A propos</a>
+        <a href="#device">Objets</a>
+        <a href="#services">Services</a>
+        <a href="#team">Contact</a>
+    </nav>
+
+    <h2>IoT Clients and Devices</h2>
     {% for client in clients %}
     <div class="client-card">
-        <h2>{{ client.full_name }}</h2>
+        <h3>{{ client.full_name }}</h3>
         <p>Email: {{ client.email }}</p>
         <p>Phone: {{ client.phone }}</p>
         <p>Address: {{ client.address }}</p>
@@ -20,7 +32,7 @@
             <p>Etat: Désactivé</p>
             {% endif %}
     
-        <h3>Devices:</h3>
+        <h4>Devices:</h4>
         <ul>
             {% for device in client.devices.all %}
             <li>{{ device.name }} - {{ device.type }}</li>
