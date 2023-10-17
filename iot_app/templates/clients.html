@@ -13,6 +13,13 @@
         <p>Email: {{ client.email }}</p>
         <p>Phone: {{ client.phone }}</p>
         <p>Address: {{ client.address }}</p>
+        <p>Date de enregistrement: {{ client.registration_date }}</p>
+        {% if client.active == 1 %}
+            <p>Etat: Activé</p>
+            {% else  %}
+            <p>Etat: Désactivé</p>
+            {% endif %}
+    
         <h3>Devices:</h3>
         <ul>
             {% for device in client.devices.all %}
@@ -21,7 +28,19 @@
                 <img src="{{ device.image.url }}" alt="{{ device.name }}" width="50">
                 {{ device.name }} - {{ device.type }}
             </li>
-            
+            <li>
+                {% if device.isActive == 1 %}
+                    Status: Activé
+                {% else  %}
+                    Status: Désactivé
+                {% endif %}
+                
+            </li>
+            <li>
+                Date création: {{ device.last_updated }}
+            </li>
+
+            <br/>
             {% endfor %}
         </ul>
     </div>
